@@ -19,6 +19,10 @@ module Yourls
       Yourls::Url.new(get('expand', options.merge!(:shorturl => short_url)).parsed_response)
     end
 
+    def clicks(short_url, options = {})
+      Yourls::Url.new(get('url-stats', options.merge!(:shorturl => short_url)).parsed_response)
+    end
+
     def shorten(long_url, options = {})
       Yourls::Url.new(get('shorturl', options.merge!(:url => long_url)).parsed_response)
     end
